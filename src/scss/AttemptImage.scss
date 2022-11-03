@@ -1,0 +1,13 @@
+@import './config';
+
+section.attempt-image {
+    figure {
+        @include FullSize;
+        @include Flex(c, c);
+
+        img {
+            @include FullSize;
+            object-fit: cover;
+        }
+    }
+}

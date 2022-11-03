@@ -1,0 +1,92 @@
+$clr-white: rgb(240, 240, 240);
+$clr-black: rgb(40, 40, 40);
+
+
+// # # # # # # # # # # # # # # # LOCAL PROJECT VARIABLES # # # # # # # # # # # # # # # # #
+
+
+
+// # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+
+
+
+
+// # # # # # # # # # # # # # # # # # MIXINS # # # # # # # # # # # # # # # # # # # # # # # 
+
+@mixin FullSize($size: 100%) {
+   width: $size;
+   height: $size;
+}
+
+@mixin Center($val) {
+   width: $val;
+   margin: 0 auto;
+}
+
+@mixin Clamp($min, $vw, $max) {
+   font-size: clamp(#{$min}rem, #{$vw}vw, #{$max}rem);
+}
+
+@mixin Absolute($l: auto, $t: auto, $b: auto, $r: auto) {
+   position: absolute;
+   left: $l;
+   top: $t;
+   bottom: $b;
+   right: $r;
+}
+
+@mixin Rectangle($val) {
+   display: block;
+   height: $val;
+   width: $val;
+}
+
+@mixin Flex($justify: none, $align: none, $dir: none) {
+   display: flex;
+   justify-content: FlexFunc($justify);
+   align-items: FlexFunc($align);
+   flex-direction: FlexDirFunc($dir);
+}
+
+// # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+
+
+
+
+// # # # # # # # # # # # # # # # HELPER FUNCTIONS # # # # # # # # # # # # # # # # # # # # #
+
+@function FlexFunc($val) {
+   $finalVal: none;
+
+   @if $val == sb { $finalVal: space-between; }
+   @else if $val == c { $finalVal: center }
+   @else if $val == sa { $finalVal: space-around; }
+   @else if $val == fe { $finalVal: flex-end; }
+   @else if $val == fs { $finalVal: flex-start; }
+   @else if $val == st { $finalVal: stretch; }
+
+   @return $finalVal;
+}
+@function FlexDirFunc($val) {
+   $finalVal: row;
+
+   @if $val == c { $finalVal: column; }
+   @else if $val == cr { $finalVal: column-reverse }
+   @else if $val == rr { $finalVal: row-reverse; }
+   
+   @return $finalVal;
+}
+
+// # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+
+
+
+
+// # # # # # # # # # # # # # # # # LOCAL PROJECT MIXINS # # # # # # # # # # # # # # # # #
+
+
+
+// # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

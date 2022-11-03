@@ -1,26 +1,35 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import AttemptImage from './components/AttemptImage/AttemptImage';
+import Keyboard from './components/Keyboard/Keyboard';
+import Keyword from './components/Keyword/Keyword';
+import './css/index.css';
+import keywordsArray from './Data/keywords';
+import Hangman from './functions/Hangman';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [hangman] = React.useState<Hangman>(new Hangman(keywordsArray, 6))
+
+    const [attempt, setAttempt] = React.useState<number>(0)
+    const [word, setWord] = React.useState<string>(hangman.getFixedWord)
+
+    return (
+        <div className="App">
+
+            <Keyword word={word} />
+
+            <section className="wrap">
+
+                <AttemptImage attempt={attempt}  />
+                <Keyboard
+                    setWord={setWord}
+                    setAttempt={setAttempt}
+                    game={hangman} 
+                />
+
+            </section>
+
+        </div>
+    );
 }
 
 export default App;
