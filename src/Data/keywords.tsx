@@ -1,9 +1,41 @@
+// 15 max
+
 const keywordsArray: string[] = [
     'Computer',
     'Window',
     'Telephone',
     'Apartament',
-    'Mongoose'
+    'Mongoose',
+    'Keyboard',
+    'Imagination',
+    'Knowledge',
+    'Ceiling',
+    'Restaurant',
+    'Programming',
+    'Inventory',
+    'Array',
+    'Github',
+    'Interface',
+    'Compiler',
+    'Module',
+    'Engine',
+    'Conversation',
+    'Flowers',
+    'System',
+    'Processor',
+    'Village',
+    'Poem',
+    'Lesson',
+    'House',
+    'Calendar',
+    'Terminal',
+    'Console',
+    'Branch',
+    'Extension',
+    'File',
+    'Music',
+    'Object',
+    'Class'
 ]
 
 export default keywordsArray

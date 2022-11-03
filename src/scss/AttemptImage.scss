@@ -10,4 +10,12 @@ section.attempt-image {
             object-fit: cover;
         }
     }
+
+    @media (max-width: 768px) {
+        figure {
+            img {
+                width: auto;
+            }
+        }
+    }
 }

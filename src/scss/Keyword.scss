@@ -3,9 +3,13 @@
 section.keyword {
     text-align: center;
     font-family: 'Roboto Mono', monospace;
-    font-size: 1.5rem;
+    @include Clamp(.9, 4.5, 1.5);
     font-weight: 600;
     letter-spacing: 5px;
     height: 17vh;
     @include Flex(c, c);
+
+    @media (max-width: 480px) {
+        height: 10vh;
+    }
 }
